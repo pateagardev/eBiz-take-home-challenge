@@ -1,3 +1,3 @@
-# eBiz-take-home-challenge
-# eBiz-take-home-challenge
-# eBiz-take-home-challenge
+# HTML and CSS 
+
+This the Take Home Challenge for EbizCharge
