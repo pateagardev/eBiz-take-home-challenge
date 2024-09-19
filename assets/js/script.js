@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 function fetchAndPopulateAllData() {
-  fetch('http://localhost:5000/api/main/eBizdata')
+  fetch('https://pateagardev.github.io/data.json')
     .then(response => response.json())
     .then(data => {
       // Show User Data
