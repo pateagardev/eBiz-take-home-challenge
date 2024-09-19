@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Home Challenge Project</title>
+    <title>Take Home Challenge</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -14,15 +14,10 @@
       <span class="nav-text">ABC Manufacturing</span>
       <ul class="navbar-nav ms-auto ms-md-0 me-lg-4">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Rebecca Smith
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-            </ul>
+            <a class="nav-link dropdown-toggle" id="userName" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> User Name </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" id="userSettings">Settings</ul>
         </li>
-        <li><a class="nav-link log" href="#!">Log Out</a></li>
+        <li><a id="logOut" class="nav-link log" href="#!">Log</a></li>
       </ul>
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
         <span class="bar"></span>
@@ -72,57 +67,13 @@
       <div class="layoutSidenav_content tab-content" id="tabContent">
         <main class="tab-pane fade show active" id="tab1">
           <div class="container-fluid">
-            <h1 class="p-2 mt-4 dash-title">Welcome back, Rebecca. <span class="title-split">Here is a summary of your account.</span></h1>
-              <div class="row">
-                <div class="col-xl-3 card-box">
-                  <div class="card">
-                      <div class="card-body">
-                        <img alt="AmountDue" src="assets/images/icons/dashboard/AmountDue.png">
-                        <p class="card-body-title">$4,120.23</p>
-                        <p class="card-body-sub">Total amount due</p>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 card-box">
-                  <div class="card">
-                    <div class="card-body">
-                      <img alt="Invoices" src="assets/images/icons/dashboard/Invoices.png">
-                      <p class="card-body-title">13</p>
-                      <p class="card-body-sub">Open invoices</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 card-box">
-                  <div class="card">
-                    <div class="card-body">
-                      <img alt="Invoices" src="assets/images/icons/dashboard/SalesOrders.png">
-                      <p class="card-body-title">2</p>
-                      <p class="card-body-sub">Open sales orders</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 card-box">
-                  <div class="card">
-                    <div class="card-body">
-                      <img alt="Credits" src="assets/images/icons/dashboard/Credits.png">
-                      <p class="card-body-title">2</p>
-                      <p class="card-body-sub">Saved payment methods</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-xl-3 card-box">
-                  <div class="card">
-                    <div class="card-body">
-                      <img alt="AutoPay" src="assets/images/icons/dashboard/AutoPay.png">
-                      <p class="card-body-title">On</p>
-                      <p class="card-body-sub">Auto pay</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-block d-md-none text-center">
-                  <button class="btn btn-primary btn-pay">Make Payment</button>
-                </div>
+            <h1 class="p-2 mt-4 dash-title">
+                <span id="welcomeMessage"></span>
+                <span id="summaryMessage" class="title-split"></span>
+            </h1>
+              <div class="row" id="dashboardContainer"></div>
+              <div class="d-block d-md-none text-center">
+                <button class="btn btn-primary btn-pay">Make Payment</button>
               </div>
               <div class="d-none d-md-block row table-row">
                 <div class="col-xl-12">
@@ -133,7 +84,7 @@
                     </div>
                     <div class="card-body card-table">
                       <div class="table-responsive">
-                        <table id="datatablesSimple" class="table table-bordered align-middle table-striped">
+                        <table id="datatablesSimple" class="table table-data table-bordered align-middle table-striped">
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col"><input class="d-none" type="checkbox" id="selectAll"></th>
@@ -147,70 +98,20 @@
                                     <th scope="col">PO #</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox" class="invoice-checkbox"></td>
-                                    <td><a href="#">234239</a></td>
-                                    <td>10/30/18</td>
-                                    <td>10/30/18</td>
-                                    <td>$100.00</td>
-                                    <td>$100.00</td>
-                                    <td>Discount of $100.00 if paid by 5/2/2020</td>
-                                    <td>Lorem ipsum dlse esliop ehasersv</td>
-                                    <td>239482</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="invoice-checkbox"></td>
-                                    <td><a href="#">567567</a></td>
-                                    <td>10/30/18</td>
-                                    <td>10/30/18</td>
-                                    <td>$500.00</td>
-                                    <td>$500.00</td>
-                                    <td>Discount of $100.00 if paid by 5/2/2020</td>
-                                    <td>Lorem ipsum dlse esliop ehasersv</td>
-                                    <td>239482</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="invoice-checkbox"></td>
-                                    <td><a href="#">345454</a></td>
-                                    <td>10/30/18</td>
-                                    <td>10/30/18</td>
-                                    <td>$200.00</td>
-                                    <td>$200.00</td>
-                                    <td>Discount of $100.00 if paid by 5/2/2020</td>
-                                    <td>Lorem ipsum dlse esliop ehasersv</td>
-                                    <td>239482</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="invoice-checkbox"></td>
-                                    <td><a href="#">345454</a></td>
-                                    <td>10/30/18</td>
-                                    <td>10/30/18</td>
-                                    <td>$300.00</td>
-                                    <td>$300.00</td>
-                                    <td>Discount of $100.00 if paid by 5/2/2020</td>
-                                    <td>Lorem ipsum dlse esliop ehasersv</td>
-                                    <td>239482</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="invoice-checkbox"></td>
-                                    <td><a href="#">345345</a></td>
-                                    <td>10/30/18</td>
-                                    <td>10/30/18</td>
-                                    <td>$20.00</td>
-                                    <td>$20.00</td>
-                                    <td>Discount of $100.00 if paid by 5/2/2020</td>
-                                    <td>Lorem ipsum dlse esliop ehasersv</td>
-                                    <td>239482</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="invoiceTableBody"></tbody>
                         </table>
                       </div>
                     </div>
                     <!-- Summary Footer -->
                     <div class="d-flex justify-content-between mt-3 summary-footer">
-                      <span class="invoices-selected">Invoices selected: <span id="selectedCount">0</span></span>
-                      <span class="totalAmount-title">Total payment amount: <span id="totalAmount">$0.00</span></span>
+                      <div>
+                        <span id="selectedAmount" class="invoices-selected"></span>
+                        <span id="selectedCount"></span>
+                      </div>
+                      <h3 class="totalAmount-title">
+                        <span id="totalAmountTitle"></span>
+                        <span id="totalAmount"></span>
+                      </h3>
                     </div> 
                   </div>
                 </div>
@@ -222,85 +123,8 @@
                       <img alt="Step2" src="assets/images/icons/Step2.png">
                       <span>Select a payment method</span>
                     </div>
-                    
-                    <ul class="nav nav-tabs mb-4" id="paymentTab" role="tablist">
-                      <li class="nav-item">
-                          <button class="nav-link active" id="credit-card-tab" data-bs-toggle="tab" data-bs-target="#credit-card" type="button" role="tab" aria-controls="credit-card" aria-selected="true">Pay by Credit Card</button>
-                      </li>
-                      <li class="nav-item">
-                          <button class="nav-link" id="bank-account-tab" data-bs-toggle="tab" data-bs-target="#bank-account" type="button" role="tab" aria-controls="bank-account" aria-selected="false">Pay with Bank Account</button>
-                      </li>
-                    </ul>
-                    
-                    <!-- Tabs Content -->
+                    <ul class="nav nav-tabs mb-4" id="paymentTab" role="tablist"> </ul>
                     <div class="tab-content" id="paymentTabContent">
-                      <!-- Credit Card Tab Content -->
-                      <div class="tab-pane fade show active tabs-card" id="credit-card" role="tabpanel" aria-labelledby="credit-card-tab">
-                        
-                        <div class="row mb-3">
-                          <ul class="nav nav-tabs mb-3" id="savedCardTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="saved-card-tab" data-bs-toggle="tab" data-bs-target="#saved-card" type="button" role="tab" aria-controls="saved-card" aria-selected="true">Saved Card</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="new-card-tab" data-bs-toggle="tab" data-bs-target="#new-card" type="button" role="tab" aria-controls="new-card" aria-selected="false">New Card</button>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="tab-content" id="saveCardTabsContent">
-                          <!-- Saved Card Tab -->
-                          <div class="tab-pane fade show active tabs-card" id="saved-card" role="tabpanel" aria-labelledby="saved-card-tab">
-                            <div class="row mb-3">
-                              <div class="col-7 mb-4">
-                                  <label for="savedCard" class="form-label">Saved Card *</label>
-                                  <div class="dropdown-cards">
-                                    <button class="btn btn-light dropdown-toggle" type="button" id="cardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img alt="mastercard" src="assets/images/icons/mastercard_icons.png" alt="MasterCard" class="card-logo"> MasterCard ending in 2039, "main card"
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="cardDropdown">
-                                        <li><a class="dropdown-item" href="#"><img src="assets/images/icons/mastercard_icons.png" alt="MasterCard" class="card-logo"> MasterCard ending in 2039, "main card"</a></li>
-                                        <li><a class="dropdown-item" href="#"><img src="assets/images/icons/visa_icons.png" alt="Visa" class="card-logo"> Visa ending in 1234, "secondary card"</a></li>
-                                        <!-- Add more card options here -->
-                                    </ul>
-                                </div>
-                              </div>
-                              <div class="col-5 d-flex align-items-center">
-                                  <a type="button"  data-bs-toggle="modal" data-bs-target="#paymentModal" class="text-primary ms-auto">Manage Payment Methods</a>
-                              </div>
-
-                              <!-- Security Code Input -->
-                              <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="securityCode" class="form-label">Security Code (CVV2 / CVC)</label>
-                                    <input type="text" class="form-control" id="securityCode" placeholder="">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                  
-                          <!-- New Card Tab -->
-                          <div class="tab-pane fade tabs-card" id="new-card" role="tabpanel" aria-labelledby="new-card-tab">
-                              <!-- Content for New Card -->
-                              <div class="mb-3">
-                                  <label for="cardNumber" class="form-label">Card Number</label>
-                                  <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="expiryDate" class="form-label">Expiry Date</label>
-                                  <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="newCardSecurityCode" class="form-label">Security Code (CVV2 / CVC)</label>
-                                  <input type="text" class="form-control" id="newCardSecurityCode" placeholder="">
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="bank-account" role="tabpanel" aria-labelledby="bank-account-tab">
-                        <h3>Bank Payments</h3>
-                        <p>Content for Bank Payments goes here.</p>
-                      </div>
-
                     </div>
                   </div>
                 </div>
@@ -315,26 +139,25 @@
                       </div>
 
                       <div class="summary-details mt-5 mb-5">
-                          <div class="mb-3 d-flex justify-content-between">
-                              <span># of invoices selected:</span>
-                              <span>0</span>
-                          </div>
-                          <div class="mb-3 d-flex justify-content-between">
-                              <span>Invoice payment amount:</span>
-                              <span>$0.00</span>
-                          </div>
-                          <div class="mb-3 d-flex justify-content-between">
-                              <span>3% card convenience fee:</span>
-                              <span>$0.00</span>
-                          </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                          <span id="selectedCountTitle"></span>
+                          <span id="selectedCountIn"></span>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <span id="totalAmountInTitle"></span>
+                            <span id="totalAmountIn"></span>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <span id="convenienceFeeTitle"></span>
+                            <span id="convenienceFee"></span>
+                        </div>
                       </div>
           
-                     
                       <div class="d-flex flex-column">
                           <hr>
                           <div class="d-flex justify-content-between amount-wrapper">
-                            <span class="totalAmount-title">Total payment amount:</span>
-                            <span class="totalAmount-title">$0.00</span>
+                            <span id="totalPaymentAmountTitle" class="totalAmount-title"></span>
+                            <span id="totalAmountFinal" class="totalAmount-title"></span>
                           </div>
                           <button class="btn btn-primary btn-pay-now">Pay Now</button>
                       </div>
@@ -378,151 +201,10 @@
               <div class="modal-body">
                   <h5 class="modal-title" id="paymentModalLabel">My Saved Payment Methods</h5>
                   <!-- Tabs Navigation -->
-                  <ul class="nav nav-tabs mb-3" id="paymentMethodsTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="credit-cards-tab" data-bs-toggle="tab" data-bs-target="#credit-cards" type="button" role="tab" aria-controls="credit-cards" aria-selected="true">Credit Cards</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="ach-accounts-tab" data-bs-toggle="tab" data-bs-target="#ach-accounts" type="button" role="tab" aria-controls="ach-accounts" aria-selected="false">ACH Accounts</button>
-                    </li>
-                  </ul>
+                  <ul class="nav nav-tabs mb-3" id="paymentMethodsTabs" role="tablist"></ul>
 
                   <!-- Tabs Content -->
-                  <div class="tab-content" id="paymentMethodsTabsContent">
-                      <!-- Credit Cards Tab -->
-                      <div class="tab-pane fade show active" id="credit-cards" role="tabpanel" aria-labelledby="credit-cards-tab">
-                        <div class="row">
-                          <div class="col-md-2">
-                              <ul class="nav flex-column nav-tabs mb-3" id="cardTabs" role="tablist">
-                                  <button type="button" class="btn btn-add mt-2"><span class="circle-icon">+</span>Add New Card</button>
-                                  <li class="nav-item" role="presentation">
-                                    <button class="nav-link default-link active" id="card-2244-tab" data-bs-toggle="tab" data-bs-target="#card-2244" type="button" role="tab" aria-controls="card-2244" aria-selected="true">
-                                        <span class="default-text">default</span>
-                                        <div class="default-flex">
-                                          <img src="assets/images/icons/visa_icons.png" alt="Visa" class="me-2">
-                                          <span> ending in 2244 <span class="fst-italic">"Main debit"</span></span>
-                                        </div>
-                                    </button>
-                                  </li>
-                                  <li class="nav-item" role="presentation">
-                                      <button class="nav-link" id="card-2997-tab" data-bs-toggle="tab" data-bs-target="#card-2997" type="button" role="tab" aria-controls="card-2997" aria-selected="false">
-                                          <img src="assets/images/icons/amex_icons.png" alt="Amex" class="me-2">
-                                          <span> ending in 2997 <span class="fst-italic">"Main debit"</span></span>
-                                      </button>
-                                  </li>
-                                  <li class="nav-item" role="presentation">
-                                      <button class="nav-link" id="card-1221-tab" data-bs-toggle="tab" data-bs-target="#card-1221" type="button" role="tab" aria-controls="card-1221" aria-selected="false">
-                                          <img src="assets/images/icons/amex_icons.png" alt="Amex" class="me-2">
-                                          <span> ending in 1221 <span class="fst-italic">"Main debit"</span></span>
-                                      </button>
-                                  </li>
-                                  <li class="nav-item" role="presentation">
-                                      <button class="nav-link" id="card-9672-tab" data-bs-toggle="tab" data-bs-target="#card-9672" type="button" role="tab" aria-controls="card-9672" aria-selected="false">
-                                          <img src="assets/images/icons/mastercard_icons.png" alt="Mastercard" class="me-2">
-                                          <span> ending in 9672 <span class="fst-italic">"Main debit"</span></span>
-                                      </button>
-                                  </li>
-                                  <li class="nav-item" role="presentation">
-                                      <button class="nav-link" id="card-5555-tab" data-bs-toggle="tab" data-bs-target="#card-5555" type="button" role="tab" aria-controls="card-5555" aria-selected="false">
-                                          <img src="assets/images/icons/visa_icons.png" alt="Visa" class="me-2"> 
-                                          <span> ending in 5555 <span class="fst-italic">"Main debit"</span></span>
-                                      </button>
-                                  </li>
-                              </ul>
-                          </div>
-    
-                          <!-- Card Details Content -->
-                          <div class="col-md-10">
-                            <div class="tab-content" id="cardTabsContent">
-                              <!-- Card 2244 Details -->
-                              <div class="tab-pane fade show active" id="card-2244" role="tabpanel" aria-labelledby="card-2244-tab">
-                                <form>
-                                    <div class="row mb-3">
-                                        <div class="col">
-                                            <label for="cardNumber-2244" class="form-label">Card Number *</label>
-                                            <input type="text" class="form-control" id="cardNumber-2244" value="XXXXXXXXXXXX2244">
-                                        </div>
-                                        <div class="col">
-                                            <label for="billingAddress-2244" class="form-label">Billing Address *</label>
-                                            <input type="text" class="form-control" id="billingAddress-2244" value="123 Sunshine Lane">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col">
-                                            <label for="nameOnCard-2244" class="form-label">Name on Card *</label>
-                                            <input type="text" class="form-control" id="nameOnCard-2244" value="Ashley Johnson">
-                                        </div>
-                                        <div class="col">
-                                            <label for="zipCode-2244" class="form-label">Zip Code / Postal Code *</label>
-                                            <input type="text" class="form-control" id="zipCode-2244" value="098345">
-                                        </div>
-                                        <div class="col">
-                                            <label for="cardNickname-2244" class="form-label">Card Nickname</label>
-                                            <input type="text" class="form-control" id="cardNickname-2244" value="Primary card">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col">
-                                            <label for="expirationDate-2244" class="form-label">Expiration Date *</label>
-                                            <div class="d-flex">
-                                                <select class="form-select me-2" id="expirationMonth-2244">
-                                                  <option>01</option>
-                                                  <option>02</option>
-                                                  <option>93</option>
-                                                  <option>04</option>
-                                                  <option>05</option>
-                                                  <option>06</option>
-                                                  <option>07</option>
-                                                </select>
-                                                <select class="form-select" id="expirationYear-2244">
-                                                  <option>23</option>
-                                                  <option>24</option>
-                                                  <option>25</option>
-                                                  <option>26</option>
-                                                  <option>27</option>
-                                                  <option>28</option>
-                                                  <option>29</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col d-flex align-items-center">
-                                            <input type="checkbox" class="form-check-input me-2" id="defaultPayment-2244" checked>
-                                            <label class="form-check-label" for="defaultPayment-2244">Make default payment method</label>
-                                        </div>
-                                    </div>
-                                    <div class="col data-button">
-                                      <button type="button" class="btn btn-outline-danger">Delete Card</button>
-                                      <button type="submit" class="btn btn-primary btn-save float-end">Save Changes</button>
-                                    </div>
-                                </form>
-                              </div>
-                              <div class="tab-pane fade show" id="card-2997" role="tabpanel" aria-labelledby="card-2997-tab">
-                                <h3>Card 2997 </h3>
-                                <p>Content for Card 2997 goes here.</p>
-                              </div>
-                              <div class="tab-pane fade show" id="card-1221" role="tabpanel" aria-labelledby="card-1221-tab">
-                                <h3>Card 1221 </h3>
-                                <p>Content for Card 1221 goes here.</p>
-                              </div>
-                              <div class="tab-pane fade show" id="card-9672" role="tabpanel" aria-labelledby="card-9672-tab">
-                                <h3>Card 9672 </h3>
-                                <p>Content for Card 9672 goes here.</p>
-                              </div>
-                              <div class="tab-pane fade show" id="card-5555" role="tabpanel" aria-labelledby="card-5555-tab">
-                                <h3>Card 5555 </h3>
-                                <p>Content for Card 5555 goes here.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- ACH Accounts Tab -->
-                      <div class="tab-pane fade" id="ach-accounts" role="tabpanel" aria-labelledby="ach-accounts-tab">
-                          <!-- ACH Accounts Content (Placeholder) -->
-                          <p>ACH accounts content goes here.</p>
-                      </div>
-                  </div>
+                  <div class="tab-content" id="paymentMethodsTabsContent"></div>
               </div>
           </div>
       </div>

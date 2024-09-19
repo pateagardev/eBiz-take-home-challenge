@@ -1,0 +1,6 @@
+@eBizTakeHomeApi_HostAddress = http://localhost:5119
+
+GET {{eBizTakeHomeApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
