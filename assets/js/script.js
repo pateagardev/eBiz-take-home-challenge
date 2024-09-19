@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 function fetchAndPopulateAllData() {
-  fetch('https://pateagardev.github.io/data.json')
+  fetch('https://pateagardev.github.io/eBiz-take-home-challenge/data.json')
     .then(response => response.json())
     .then(data => {
       // Show User Data
